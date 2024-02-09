@@ -16,7 +16,7 @@ async function handler(
       ...authOptions.providers,
       SteamProvider(req, {
         clientSecret: env.STEAM_SECRET,
-        callbackUrl: "http://localhost:3000/api/auth/callback",
+        callbackUrl: `${env.NODE_ENV === "development" ? "http://localhost:3000" : "https://cscoach.vercel.app"}/api/auth/callback`,
       }),
     ],
   });
